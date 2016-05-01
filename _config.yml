@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: "Vito's code stack"
-subtitle: "Life is short, why you become a developer?"
-description: "vitostack develop"
+title: "Vito's TecH sTacK"
+subtitle: "vitostack develop"
+description: "Life is short, why you become a developer?"
 author: "Vito"
 email: vito2015@live.com
-language: zh-Hanz
+language: zh-CN
 timezone:
 
 # URL
@@ -64,7 +64,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: hexo-theme-next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -74,7 +74,29 @@ deploy:
   branch: gh-pages
 
 
+index_generator:
+  per_page: 10 ##首頁默認10篇文章標題 如果值爲0不分頁
+
+archive_generator:
+  per_page: 10 ##歸檔頁面默認10篇文章標題
+  yearly: true  ##生成年視圖
+  monthly: true ##生成月視圖
+
+tag_generator:
+  per_page: 10 ##標籤分類頁面默認10篇文章
+
+category_generator:
+   per_page: 10 ###分類頁面默認10篇文章
+
+
 feed:
-  type:
-  path:
-  limit:
+  type: atom ##feed類型 atom或者rss2
+  path: atom.xml ##feed路徑
+  limit: 20  ##feed文章最小數量
+
+sitemap:
+  path: sitemap.xml
+
+baidusitemap:
+  path: baidusitemap.xml
+
