@@ -8,7 +8,7 @@ subtitle: "vitostack develop"
 description: "Life is short, why you become a developer?"
 author: "Vito"
 email: vito2015@live.com
-language: zh-CN
+language: zh-Hans
 timezone:
 
 # URL
@@ -99,4 +99,9 @@ sitemap:
 
 baidusitemap:
   path: baidusitemap.xml
+
+weixin:
+  enable: true
+  text: 欢迎大家关注：Vito's微信公众号
+  public: /images/qrcode_vitostack.jpg
 
