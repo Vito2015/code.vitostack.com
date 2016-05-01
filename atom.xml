@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Vito&#39;s TecH sTacK</title>
+  <subtitle>vitostack develop</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://code.vitostack.com/"/>
+  <updated>2016-05-01T18:46:10.000Z</updated>
+  <id>http://code.vitostack.com/</id>
+  
+  <author>
+    <name>Vito</name>
+    <email>vito2015@live.com</email>
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开始我的VitoStack博客</title>
+    <link href="http://code.vitostack.com/2016/05/01/2016-05-01-first-blog/"/>
+    <id>http://code.vitostack.com/2016/05/01/2016-05-01-first-blog/</id>
+    <published>2016-05-01T08:10:16.000Z</published>
+    <updated>2016-05-01T18:46:10.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;h3 id=&quot;琴诗&quot;&gt;&lt;a href=&quot;#琴诗&quot; class=&quot;headerlink&quot; title=&quot;琴诗&quot;&gt;&lt;/a&gt;琴诗&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;若言琴上有琴声，放在匣中何不鸣？&lt;br&gt;若言声在指头上，何不于君指上听？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;听嘉陵江水声寄深上人&quot;&gt;&lt;a href=&quot;#听嘉陵江水声寄深上人&quot; class=&quot;headerlink&quot; title=&quot;听嘉陵江水声寄深上人&quot;&gt;&lt;/a&gt;听嘉陵江水声寄深上人&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;凿岩泄奔湍，称古神禹迹。&lt;br&gt;夜喧山门店，独宿不安席。&lt;br&gt;水性自云静，石中本无声。&lt;br&gt;如何两相激，雷转空山惊？&lt;br&gt;贻之道门旧，了此物我情。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;抛两首诗，借古人之口阐述人生的哲学&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;正文&quot;&gt;&lt;a href=&quot;#正文&quot; class=&quot;headerlink&quot; title=&quot;正文&quot;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;很早以前就想自己搭个个人博客，来 Dump 人生。奈何，奈何，奈若何，言而总之，总而言之这几天五一放假，想去这想去那最后都没去成，所以折腾了一天用基于&lt;a href=&quot;https://nodejs.org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Node.js&lt;/a&gt;的&lt;a href=&quot;https://hexo.io&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;hexo&lt;/a&gt;框架搭建了一个静态博客。&lt;br&gt;As you know, i’m a developer.so..that’s a piece of cake，ah~&lt;br&gt;以后可能逐步的将 &lt;a href=&quot;http://www.cnblogs.com/Vito2008/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客园&lt;/a&gt; 上的文搬过来。本站致力于分享更多的技术（Technology），&lt;br&gt;目前还在考虑要不要单开一个吐槽的非技术博，看心力吧。&lt;/p&gt;
+&lt;p&gt;最后，欢迎关注，欢迎收藏，欢迎rss，欢迎&lt;strong&gt;&lt;a href=&quot;https://github.com/Vito2015/code.vitostack.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Fork me on github&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;序言&quot;&gt;&lt;a href=&quot;#序言&quot; class=&quot;headerlink&quot; title=&quot;序言&quot;&gt;&lt;/a&gt;序言&lt;/h2&gt;&lt;h3 id=&quot;琴诗&quot;&gt;&lt;a href=&quot;#琴诗&quot; class=&quot;headerlink&quot; title=&quot;琴诗&quot;&gt;&lt;/a&gt;琴诗&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;若言琴上有琴声，放在匣中何不鸣？&lt;br&gt;若言声在指头上，何不于君指上听？&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="一本正经的人生" scheme="http://code.vitostack.com/categories/%E4%B8%80%E6%9C%AC%E6%AD%A3%E7%BB%8F%E7%9A%84%E4%BA%BA%E7%94%9F/"/>
+    
+    
+      <category term="杂谈" scheme="http://code.vitostack.com/tags/%E6%9D%82%E8%B0%88/"/>
+    
+      <category term="诗词" scheme="http://code.vitostack.com/tags/%E8%AF%97%E8%AF%8D/"/>
+    
+  </entry>
+  
+</feed>
