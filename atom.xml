@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://code.vitostack.com/"/>
-  <updated>2016-05-02T09:10:30.000Z</updated>
+  <updated>2016-05-02T10:56:28.000Z</updated>
   <id>http://code.vitostack.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://code.vitostack.com/2016/05/02/python%E6%95%B0%E6%8D%AE%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7%E5%A4%9A%E6%AF%94%E8%BE%83/"/>
     <id>http://code.vitostack.com/2016/05/02/python数据图表工具多比较/</id>
     <published>2016-05-02T06:37:34.000Z</published>
-    <updated>2016-05-02T09:10:30.000Z</updated>
+    <updated>2016-05-02T10:56:28.000Z</updated>
     
     <content type="html">&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;Python 的科学栈相当成熟，各种应用场景都有相关的模块，包括机器学习和数据分析。  &lt;/p&gt;
 &lt;p&gt;数据可视化是发现数据和展示结果的重要一环，只不过过去以来，相对于 R 这样的工具，发展还是落后一些。    &lt;/p&gt;
@@ -33,7 +33,6 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
 &lt;th&gt;id&lt;/th&gt;
 &lt;th&gt;name&lt;/th&gt;
 &lt;th&gt;city&lt;/th&gt;
@@ -50,7 +49,6 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;Goroka&lt;/td&gt;
 &lt;td&gt;Goroka&lt;/td&gt;
@@ -65,7 +63,6 @@
 &lt;td&gt;Pacific/Port_Moresby&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;Madang&lt;/td&gt;
 &lt;td&gt;Madang&lt;/td&gt;
@@ -80,7 +77,6 @@
 &lt;td&gt;Pacific/Port_Moresby&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;Mount Hagen&lt;/td&gt;
 &lt;td&gt;Mount Hagen&lt;/td&gt;
@@ -95,7 +91,6 @@
 &lt;td&gt;Pacific/Port_Moresby&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;Nadzab&lt;/td&gt;
 &lt;td&gt;Nadzab&lt;/td&gt;
@@ -110,7 +105,6 @@
 &lt;td&gt;Pacific/Port_Moresby&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;Port Moresby Jacksons Intl&lt;/td&gt;
 &lt;td&gt;Port Moresby&lt;/td&gt;
@@ -130,7 +124,6 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
 &lt;th&gt;id&lt;/th&gt;
 &lt;th&gt;name&lt;/th&gt;
 &lt;th&gt;alias&lt;/th&gt;
@@ -143,7 +136,6 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;Private flight&lt;/td&gt;
 &lt;td&gt;\N&lt;/td&gt;
@@ -154,7 +146,6 @@
 &lt;td&gt;Y&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;135 Airways&lt;/td&gt;
 &lt;td&gt;\N&lt;/td&gt;
@@ -165,7 +156,6 @@
 &lt;td&gt;N&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;1Time Airline&lt;/td&gt;
 &lt;td&gt;\N&lt;/td&gt;
@@ -176,7 +166,6 @@
 &lt;td&gt;Y&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;2 Sqn No 1 Elementary Flying Training School&lt;/td&gt;
 &lt;td&gt;\N&lt;/td&gt;
@@ -187,7 +176,6 @@
 &lt;td&gt;N&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;5&lt;/td&gt;
 &lt;td&gt;213 Flight Unit&lt;/td&gt;
 &lt;td&gt;\N&lt;/td&gt;
@@ -203,7 +191,6 @@
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
-&lt;th&gt;&lt;/th&gt;
 &lt;th&gt;airline&lt;/th&gt;
 &lt;th&gt;airline_id&lt;/th&gt;
 &lt;th&gt;source&lt;/th&gt;
@@ -217,7 +204,6 @@
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;0&lt;/td&gt;
 &lt;td&gt;2B&lt;/td&gt;
 &lt;td&gt;410&lt;/td&gt;
 &lt;td&gt;AER&lt;/td&gt;
@@ -229,7 +215,6 @@
 &lt;td&gt;CR2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;1&lt;/td&gt;
 &lt;td&gt;2B&lt;/td&gt;
 &lt;td&gt;410&lt;/td&gt;
 &lt;td&gt;ASF&lt;/td&gt;
@@ -241,7 +226,6 @@
 &lt;td&gt;CR2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;2&lt;/td&gt;
 &lt;td&gt;2B&lt;/td&gt;
 &lt;td&gt;410&lt;/td&gt;
 &lt;td&gt;ASF&lt;/td&gt;
@@ -253,7 +237,6 @@
 &lt;td&gt;CR2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;3&lt;/td&gt;
 &lt;td&gt;2B&lt;/td&gt;
 &lt;td&gt;410&lt;/td&gt;
 &lt;td&gt;CEK&lt;/td&gt;
@@ -265,7 +248,6 @@
 &lt;td&gt;CR2&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
 &lt;td&gt;2B&lt;/td&gt;
 &lt;td&gt;410&lt;/td&gt;
 &lt;td&gt;CEK&lt;/td&gt;
