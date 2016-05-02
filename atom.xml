@@ -4,9 +4,9 @@
   <subtitle>vitostack develop</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://code.vitostack.com/"/>
+  <link href="http://www.vitostack.com/"/>
   <updated>2016-05-02T10:56:28.000Z</updated>
-  <id>http://code.vitostack.com/</id>
+  <id>http://www.vitostack.com/</id>
   
   <author>
     <name>Vito</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>python数据图表工具多比较</title>
-    <link href="http://code.vitostack.com/2016/05/02/python%E6%95%B0%E6%8D%AE%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7%E5%A4%9A%E6%AF%94%E8%BE%83/"/>
-    <id>http://code.vitostack.com/2016/05/02/python数据图表工具多比较/</id>
+    <link href="http://www.vitostack.com/2016/05/02/python%E6%95%B0%E6%8D%AE%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7%E5%A4%9A%E6%AF%94%E8%BE%83/"/>
+    <id>http://www.vitostack.com/2016/05/02/python数据图表工具多比较/</id>
     <published>2016-05-02T06:37:34.000Z</published>
     <updated>2016-05-02T10:56:28.000Z</updated>
     
@@ -328,19 +328,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://code.vitostack.com/categories/Python/"/>
+      <category term="Python" scheme="http://www.vitostack.com/categories/Python/"/>
     
     
-      <category term="python" scheme="http://code.vitostack.com/tags/python/"/>
+      <category term="python" scheme="http://www.vitostack.com/tags/python/"/>
     
-      <category term="数据可视化" scheme="http://code.vitostack.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="数据可视化" scheme="http://www.vitostack.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>两张神图介绍python3和 2.x与 3.x 的区别</title>
-    <link href="http://code.vitostack.com/2016/05/02/deffpy2and3/"/>
-    <id>http://code.vitostack.com/2016/05/02/deffpy2and3/</id>
+    <link href="http://www.vitostack.com/2016/05/02/deffpy2and3/"/>
+    <id>http://www.vitostack.com/2016/05/02/deffpy2and3/</id>
     <published>2016-05-01T23:33:29.000Z</published>
     <updated>2016-05-02T10:46:35.000Z</updated>
     
@@ -357,19 +357,19 @@
     
     </summary>
     
-      <category term="Python" scheme="http://code.vitostack.com/categories/Python/"/>
+      <category term="Python" scheme="http://www.vitostack.com/categories/Python/"/>
     
     
-      <category term="python" scheme="http://code.vitostack.com/tags/python/"/>
+      <category term="python" scheme="http://www.vitostack.com/tags/python/"/>
     
-      <category term="思维导图" scheme="http://code.vitostack.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
+      <category term="思维导图" scheme="http://www.vitostack.com/tags/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE/"/>
     
   </entry>
   
   <entry>
     <title>开始我的VitoStack博客</title>
-    <link href="http://code.vitostack.com/2016/05/01/first-blog/"/>
-    <id>http://code.vitostack.com/2016/05/01/first-blog/</id>
+    <link href="http://www.vitostack.com/2016/05/01/first-blog/"/>
+    <id>http://www.vitostack.com/2016/05/01/first-blog/</id>
     <published>2016-05-01T08:10:16.000Z</published>
     <updated>2016-05-01T18:46:10.000Z</updated>
     
@@ -393,12 +393,12 @@
     
     </summary>
     
-      <category term="一本正经的人生" scheme="http://code.vitostack.com/categories/%E4%B8%80%E6%9C%AC%E6%AD%A3%E7%BB%8F%E7%9A%84%E4%BA%BA%E7%94%9F/"/>
+      <category term="一本正经的人生" scheme="http://www.vitostack.com/categories/%E4%B8%80%E6%9C%AC%E6%AD%A3%E7%BB%8F%E7%9A%84%E4%BA%BA%E7%94%9F/"/>
     
     
-      <category term="杂谈" scheme="http://code.vitostack.com/tags/%E6%9D%82%E8%B0%88/"/>
+      <category term="杂谈" scheme="http://www.vitostack.com/tags/%E6%9D%82%E8%B0%88/"/>
     
-      <category term="诗词" scheme="http://code.vitostack.com/tags/%E8%AF%97%E8%AF%8D/"/>
+      <category term="诗词" scheme="http://www.vitostack.com/tags/%E8%AF%97%E8%AF%8D/"/>
     
   </entry>
   
