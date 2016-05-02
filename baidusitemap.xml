@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://code.vitostack.com/2016/05/02/deffpy2and3/</loc>
+    <lastmod>2016-05-02T10:40:16.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2016-05-01T16:00:00.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://code.vitostack.com/2016/05/02/python%E6%95%B0%E6%8D%AE%E5%9B%BE%E8%A1%A8%E5%B7%A5%E5%85%B7%E5%A4%9A%E6%AF%94%E8%BE%83/</loc>
     <lastmod>2016-05-02T09:10:30.000Z</lastmod>
     <data>
@@ -14,28 +29,6 @@
         <tag>python</tag>
          
         <tag>数据可视化</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://code.vitostack.com/categories/Python/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://code.vitostack.com/2016/05/02/deffpy2and3/</loc>
-    <lastmod>2016-05-02T00:01:43.000Z</lastmod>
-    <data>
-        <display>
-        <title>两张神图介绍python3和 2.x与 3.x 的区别</title>
-        <pubTime>2016-05-01T23:33:29.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-        <tag>思维导图</tag>
          
          
            
