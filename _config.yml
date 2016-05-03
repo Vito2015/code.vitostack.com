@@ -104,6 +104,10 @@ sitemap:
 baidusitemap:
   path: baidusitemap.xml
 
+# search in site
+swiftype_key: dJNuMs9b_-xzwsco9iLM
+
+
 #weixin:
 #  enable: true
 #  text: 欢迎大家关注：Vito's微信公众号
