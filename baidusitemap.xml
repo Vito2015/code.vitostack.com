@@ -3,6 +3,30 @@
 
 
     
+  <url>
+    <loc>http://www.vitostack.com/2016/05/05/python-map-reduce-on-hadoop/</loc>
+    <lastmod>2016-05-05T16:08:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hadoop上跑MapReduce的Python示例</title>
+        <pubTime>2016-05-05T15:15:21.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>hadoop</tag>
+         
+        <tag>mapreduce</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hadoop" url="http://www.vitostack.com/categories/Hadoop/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://www.vitostack.com/2016/05/04/pyextend-lib/</loc>
