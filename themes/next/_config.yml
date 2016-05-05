@@ -6,7 +6,7 @@
 favicon: /favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT, Vitostack"
+keywords: "Hexo, NexT, Python, Vitostack, Blog"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -31,7 +31,7 @@ menu:
   tags: /tags
   # commonweal: /404.html
   guestbook: /guestbook
-  rss: /atom.xml
+#  rss: /atom.xml
 
 # Enable/Disable menu icons.
 # Icon Mapping:
@@ -43,11 +43,11 @@ menu_icons:
   #KeyMapsToMenuItemKey: NameOfTheIconFromFontAwesome
   home: home
   about: user
-  # categories: th
+  categories: th
   tags: tags
   archives: archive
   rss: rss
-  # commonweal: heartbeat
+  commonweal: heartbeat
   guestbook: comments
 
 
@@ -58,8 +58,8 @@ menu_icons:
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
-#scheme: Mist
+#scheme: Muse
+scheme: Mist
 #scheme: Pisces
 
 
