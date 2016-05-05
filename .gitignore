@@ -1,6 +1,7 @@
 .DS_Store
 db.json
 public/
+dst/
 .deploy/
 .deploy_git/
 .idea/
