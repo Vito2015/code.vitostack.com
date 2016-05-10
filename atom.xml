@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.vitostack.com/"/>
-  <updated>2016-05-05T16:08:01.000Z</updated>
+  <updated>2016-05-10T15:59:17.000Z</updated>
   <id>http://www.vitostack.com/</id>
   
   <author>
@@ -14,6 +14,478 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬虫－常用技巧</title>
+    <link href="http://www.vitostack.com/2016/05/10/python-crawer-skill/"/>
+    <id>http://www.vitostack.com/2016/05/10/python-crawer-skill/</id>
+    <published>2016-05-10T15:55:02.000Z</published>
+    <updated>2016-05-10T15:59:17.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;基本抓取网页&quot;&gt;&lt;a href=&quot;#基本抓取网页&quot; class=&quot;headerlink&quot; title=&quot;基本抓取网页&quot;&gt;&lt;/a&gt;基本抓取网页&lt;/h2&gt;&lt;h3 id=&quot;get方法&quot;&gt;&lt;a href=&quot;#get方法&quot; class=&quot;headerlink&quot; title=&quot;get方法&quot;&gt;&lt;/a&gt;get方法&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url = &lt;span class=&quot;string&quot;&gt;&quot;http://www.baidu.com&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response = urllib2.urlopen(url)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; response.read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;post方法&quot;&gt;&lt;a href=&quot;#post方法&quot; class=&quot;headerlink&quot; title=&quot;post方法&quot;&gt;&lt;/a&gt;post方法&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url = &lt;span class=&quot;string&quot;&gt;&quot;http://abcde.com&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;form = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;abc&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;password&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;1234&#39;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;form_data = urllib.urlencode(form)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;request = urllib2.Request(url,form_data)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response = urllib2.urlopen(request)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; response.read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;使用代理IP&quot;&gt;&lt;a href=&quot;#使用代理IP&quot; class=&quot;headerlink&quot; title=&quot;使用代理IP&quot;&gt;&lt;/a&gt;使用代理IP&lt;/h2&gt;&lt;p&gt;在开发爬虫过程中经常会遇到IP被封掉的情况，这时就需要用到代理IP；&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;在urllib2包中有&lt;code&gt;ProxyHandler&lt;/code&gt;类，通过此类可以设置代理访问网页，如下代码片段：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;proxy = urllib2.ProxyHandler(&amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;http&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;127.0.0.1:8087&#39;&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opener = urllib2.build_opener(proxy)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;urllib2.install_opener(opener)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response = urllib2.urlopen(&lt;span class=&quot;string&quot;&gt;&#39;http://www.baidu.com&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; response.read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Cookies处理&quot;&gt;&lt;a href=&quot;#Cookies处理&quot; class=&quot;headerlink&quot; title=&quot;Cookies处理&quot;&gt;&lt;/a&gt;Cookies处理&lt;/h2&gt;&lt;p&gt; &lt;em&gt;cookies&lt;/em&gt;是某些网站为了辨别用户身份、进行&lt;em&gt;session&lt;/em&gt;跟踪而储存在用户本地终端上的数据(通常经过加密)，python提供了&lt;code&gt;cookielib&lt;/code&gt;模块用于处理&lt;em&gt;cookies&lt;/em&gt;，&lt;code&gt;cookielib&lt;/code&gt;模块的主要作用是提供可存储&lt;em&gt;cookie&lt;/em&gt;的对象，以便于与&lt;code&gt;urllib2&lt;/code&gt;模块配合使用来访问Internet资源.&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2,cookielib&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cookie_support = urllib2.HTTPCookieProcessor(cookielib.CookieJar())&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opener = urllib2.build_opener(cookie_support)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;urllib2.install_opener(opener)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;content = urllib2.urlopen(&lt;span class=&quot;string&quot;&gt;&#39;http://www.vitostack.com/2016/05/01/first-blog/&#39;&lt;/span&gt;).read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;关键在于&lt;code&gt;CookieJar()&lt;/code&gt;，它用于管理&lt;em&gt;HTTP&lt;/em&gt; &lt;em&gt;cookie&lt;/em&gt;值、存储&lt;em&gt;HTTP&lt;/em&gt;请求生成的&lt;em&gt;cookie&lt;/em&gt;、向传出的&lt;em&gt;HTTP&lt;/em&gt;请求添加&lt;em&gt;cookie&lt;/em&gt;的对象。整个&lt;em&gt;cookie&lt;/em&gt;都存储在内存中，对&lt;code&gt;CookieJar&lt;/code&gt;实例进行垃圾回收后&lt;em&gt;cookie&lt;/em&gt;也将丢失，所有过程都不需要单独去操作。&lt;/p&gt;
+&lt;h3 id=&quot;手动添加cookie&quot;&gt;&lt;a href=&quot;#手动添加cookie&quot; class=&quot;headerlink&quot; title=&quot;手动添加cookie&quot;&gt;&lt;/a&gt;手动添加cookie&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cookie=&lt;span class=&quot;string&quot;&gt;&quot;PHPSESSID=91rurfqm2329bopnosfu4fvmu7;kmsign=55d2c12c9b1e3;KMUID=b6Ejc1XSwPq9o756AxnBAg=&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;request.add_header(&lt;span class=&quot;string&quot;&gt;&quot;Cookie&quot;&lt;/span&gt;,cookie)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;伪装成浏览器&quot;&gt;&lt;a href=&quot;#伪装成浏览器&quot; class=&quot;headerlink&quot; title=&quot;伪装成浏览器&quot;&gt;&lt;/a&gt;伪装成浏览器&lt;/h2&gt;&lt;p&gt;某些网站反感爬虫的到访，于是对爬虫一律拒绝请求。所以用&lt;code&gt;urllib2&lt;/code&gt;直接访问网站经常会出现&lt;em&gt;HTTP Error 403: Forbidden&lt;/em&gt;的情况.&lt;br&gt;对有些&lt;em&gt;header&lt;/em&gt;要特别留意，&lt;em&gt;Server&lt;/em&gt;端会针对这些&lt;em&gt;header&lt;/em&gt;做检查&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;User-Agent&lt;/code&gt; 有些 Server 或 Proxy 会检查该值，用来判断是否是浏览器发起的 Request&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;Content-Type&lt;/code&gt; 在使用 &lt;strong&gt;REST&lt;/strong&gt; 接口时，Server 会检查该值，用来确定 HTTP Body 中的内容该怎样解析。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这时可以通过修改http包中的header来实现，代码片段如下：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headers = &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;User-Agent&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;Mozilla/5.0(Windows;U;WindowsNT6.1;en-US;rv:1.9.1.6)Gecko/20091201Firefox/3.5.6&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;request = urllib2.Request(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url = &lt;span class=&quot;string&quot;&gt;&#39;http://www.vitostack.com/2016/05/01/first-blog/&#39;&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headers=headers&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;printurllib2.urlopen(request).read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;页面解析&quot;&gt;&lt;a href=&quot;#页面解析&quot; class=&quot;headerlink&quot; title=&quot;页面解析&quot;&gt;&lt;/a&gt;页面解析&lt;/h2&gt;&lt;p&gt;对于页面解析最强大的当然是正则表达式，这个对于不同网站不同的使用者都不一样，就不用过多的说明，附两个比较好的网址：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;正则表达式入门：&lt;a href=&quot;http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/huxi/archive/2010/07/04/1771073.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;正则表达式在线测试：&lt;a href=&quot;http://tool.oschina.net/regex/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tool.oschina.net/regex/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其次就是解析库了，常用的有两个&lt;strong&gt;lxml&lt;/strong&gt;和&lt;strong&gt;BeautifulSoup&lt;/strong&gt;，对于这两个的使用介绍两个比较好的网站：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;lxml：&lt;a href=&quot;http://www.vitostack.com/2016/05/10/xpath-syntax/&quot;&gt;http://www.vitostack.com/2016/05/10/xpath-syntax/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;BeautifulSoup：&lt;a href=&quot;http://www.kuqin.com/shuoit/20150424/345875.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《Python爬虫入门八之Beautiful Soup的用法》&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于这两个库，我的评价是，都是HTML/XML的处理库，&lt;code&gt;Beautifulsoup&lt;/code&gt;纯python实现，效率低，但是功能实用，比如能用通过结果搜索获得某个HTML节点的源码；lxmlC语言编码，高效，支持&lt;code&gt;Xpath&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;验证码的处理&quot;&gt;&lt;a href=&quot;#验证码的处理&quot; class=&quot;headerlink&quot; title=&quot;验证码的处理&quot;&gt;&lt;/a&gt;验证码的处理&lt;/h2&gt;&lt;p&gt;对于一些简单的验证码，可以进行简单的识别。本人也只进行过一些简单的验证码识别。但是有些反人类的验证码，比如12306，可以通过打码平台进行人工打码，当然这是要付费的。&lt;/p&gt;
+&lt;h2 id=&quot;gzip压缩&quot;&gt;&lt;a href=&quot;#gzip压缩&quot; class=&quot;headerlink&quot; title=&quot;gzip压缩&quot;&gt;&lt;/a&gt;gzip压缩&lt;/h2&gt;&lt;p&gt;有没有遇到过某些网页，不论怎么转码都是一团乱码。哈哈，那说明你还不知道许多web服务具有发送压缩数据的能力，这可以将网络线路上传输的大量数据消减 60% 以上。这尤其适用于 XML web 服务，因为 XML 数据 的压缩率可以很高。&lt;/p&gt;
+&lt;p&gt;但是一般服务器不会为你发送压缩数据，除非你告诉服务器你可以处理压缩数据。&lt;/p&gt;
+&lt;p&gt;于是需要这样修改代码：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2,httplib&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;request = urllib2.Request(&lt;span class=&quot;string&quot;&gt;&#39;http://xxxx.com&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;request.add_header(&lt;span class=&quot;string&quot;&gt;&#39;Accept-encoding&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;gzip&#39;&lt;/span&gt;)&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;opener = urllib2.build_opener()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;f = opener.open(request)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;这是关键:创建&lt;code&gt;Request&lt;/code&gt;对象，添加一个 &lt;code&gt;Accept-encoding&lt;/code&gt; 头信息告诉服务器你能接受 &lt;code&gt;gzip&lt;/code&gt; 压缩数据.&lt;br&gt;然后就是解压缩数据：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; StringIO&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; gzip&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;compresseddata = f.read()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;compressedstream = StringIO.StringIO(compresseddata)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;gzipper = gzip.GzipFile(fileobj=compressedstream)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;printgzipper.read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;多线程并发抓取&quot;&gt;&lt;a href=&quot;#多线程并发抓取&quot; class=&quot;headerlink&quot; title=&quot;多线程并发抓取&quot;&gt;&lt;/a&gt;多线程并发抓取&lt;/h2&gt;&lt;p&gt;单线程太慢的话，就需要多线程了，这里给个简单的线程池模板 这个程序只是简单地打印了1-10，但是可以看出是并发的。&lt;br&gt;虽然说python的多线程很鸡肋，但是对于爬虫这种网络频繁型，还是能一定程度提高效率的。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;34&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;35&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; threading &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Thread&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; Queue &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Queue&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; time &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; sleep&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#q是任务队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#NUM是并发线程总数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#JOBS是有多少任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;q = Queue()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;NUM = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;JOBS = &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#具体的处理函数，负责处理单个任务&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;do_somthing_using&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(arguments)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; arguments&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#这个是工作进程，负责不断从队列取数据并处理&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;working&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;:&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        arguments = q.get()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        do_somthing_using(arguments)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sleep(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        q.task_done()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#forkNUM个线程等待队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(NUM):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    t=Thread(target=working)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    t.setDaemon(&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    t.start()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#把JOBS排入队列&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; range(JOBS):&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    q.put(i)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#等待所有JOBS完成&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;q.join()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基本抓取网页&quot;&gt;&lt;a href=&quot;#基本抓取网页&quot; class=&quot;headerlink&quot; title=&quot;基本抓取网页&quot;&gt;&lt;/a&gt;基本抓取网页&lt;/h2&gt;&lt;h3 id=&quot;get方法&quot;&gt;&lt;a href=&quot;#get方法&quot; class=&quot;headerlink&quot; title=&quot;get方法&quot;&gt;&lt;/a&gt;get方法&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url = &lt;span class=&quot;string&quot;&gt;&quot;http://www.baidu.com&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response = urllib2.urlopen(url)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; response.read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;post方法&quot;&gt;&lt;a href=&quot;#post方法&quot; class=&quot;headerlink&quot; title=&quot;post方法&quot;&gt;&lt;/a&gt;post方法&lt;/h3&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; urllib2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;url = &lt;span class=&quot;string&quot;&gt;&quot;http://abcde.com&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;form = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;name&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;abc&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;password&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;1234&#39;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;form_data = urllib.urlencode(form)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;request = urllib2.Request(url,form_data)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;response = urllib2.urlopen(request)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;print&lt;/span&gt; response.read()&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;使用代理IP&quot;&gt;&lt;a href=&quot;#使用代理IP&quot; class=&quot;headerlink&quot; title=&quot;使用代理IP&quot;&gt;&lt;/a&gt;使用代理IP&lt;/h2&gt;&lt;p&gt;在开发爬虫过程中经常会遇到IP被封掉的情况，这时就需要用到代理IP；&lt;br&gt;
+    
+    </summary>
+    
+      <category term="爬虫技术栈" scheme="http://www.vitostack.com/categories/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
+    
+    
+      <category term="python爬虫" scheme="http://www.vitostack.com/tags/python%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="urllib" scheme="http://www.vitostack.com/tags/urllib/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python爬虫-Xpath语法</title>
+    <link href="http://www.vitostack.com/2016/05/10/xpath-syntax/"/>
+    <id>http://www.vitostack.com/2016/05/10/xpath-syntax/</id>
+    <published>2016-05-10T15:41:25.000Z</published>
+    <updated>2016-05-10T15:59:17.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;选取节点&quot;&gt;&lt;a href=&quot;#选取节点&quot; class=&quot;headerlink&quot; title=&quot;选取节点&quot;&gt;&lt;/a&gt;选取节点&lt;/h2&gt;&lt;h3 id=&quot;常用的路劲表达式：&quot;&gt;&lt;a href=&quot;#常用的路劲表达式：&quot; class=&quot;headerlink&quot; title=&quot;常用的路劲表达式：&quot;&gt;&lt;/a&gt;常用的路劲表达式：&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;表达式&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;th&gt;实例&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nodename&lt;/td&gt;
+&lt;td&gt;选取nodename节点的所有子节点&lt;/td&gt;
+&lt;td&gt;xpath(‘//div’)&lt;/td&gt;
+&lt;td&gt;选取了div节点的所有子节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;td&gt;从根节点选取&lt;/td&gt;
+&lt;td&gt;xpath(‘/div’)&lt;/td&gt;
+&lt;td&gt;从根节点上选取div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;//&lt;/td&gt;
+&lt;td&gt;选取所有的当前节点，不考虑他们的位置&lt;/td&gt;
+&lt;td&gt;xpath(‘//div’)&lt;/td&gt;
+&lt;td&gt;选取所有的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.&lt;/td&gt;
+&lt;td&gt;选取当前节点&lt;/td&gt;
+&lt;td&gt;xpath(‘./div’)&lt;/td&gt;
+&lt;td&gt;选取当前节点下的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;..&lt;/td&gt;
+&lt;td&gt;选取当前节点的父节点&lt;/td&gt;
+&lt;td&gt;xpath(‘..’)&lt;/td&gt;
+&lt;td&gt;回到上一个节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;选取属性&lt;/td&gt;
+&lt;td&gt;xpath（’//@calss’）&lt;/td&gt;
+&lt;td&gt;选取所有的class属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;谓语&quot;&gt;&lt;a href=&quot;#谓语&quot; class=&quot;headerlink&quot; title=&quot;谓语&quot;&gt;&lt;/a&gt;谓语&lt;/h2&gt;&lt;p&gt;谓语被嵌在方括号内，用来查找某个特定的节点或包含某个制定的值的节点&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;实例：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;表达式&lt;/th&gt;
+&lt;th&gt;结果&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[1]’)&lt;/td&gt;
+&lt;td&gt;选取body下的第一个div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[last()]’)&lt;/td&gt;
+&lt;td&gt;选取body下最后一个div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[last()-1]’)&lt;/td&gt;
+&lt;td&gt;选取body下倒数第二个div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[positon()&amp;lt;3]’)&lt;/td&gt;
+&lt;td&gt;选取body下前两个div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[@class]’)&lt;/td&gt;
+&lt;td&gt;选取body下带有class属性的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[@class=”main”]’)&lt;/td&gt;
+&lt;td&gt;选取body下class属性为main的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/body/div[price&amp;gt;35.00]’)&lt;/td&gt;
+&lt;td&gt;选取body下price元素值大于35的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;通配符&quot;&gt;&lt;a href=&quot;#通配符&quot; class=&quot;headerlink&quot; title=&quot;通配符&quot;&gt;&lt;/a&gt;通配符&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Xpath&lt;/code&gt;通过通配符来选取未知的XML元素&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;表达式&lt;/th&gt;
+&lt;th&gt;结果&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath（’/div/*’）&lt;/td&gt;
+&lt;td&gt;选取div下的所有子节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘/div[@*]’)&lt;/td&gt;
+&lt;td&gt;选取所有带属性的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;取多个路径&quot;&gt;&lt;a href=&quot;#取多个路径&quot; class=&quot;headerlink&quot; title=&quot;取多个路径&quot;&gt;&lt;/a&gt;取多个路径&lt;/h2&gt;&lt;p&gt;使用“|”运算符可以选取多个路径&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;表达式&lt;/th&gt;
+&lt;th&gt;结果&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;xpath(‘//div&lt;/td&gt;
+&lt;td&gt;//table’)&lt;/td&gt;
+&lt;td&gt;选取所有的div和table节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;Xpath轴&quot;&gt;&lt;a href=&quot;#Xpath轴&quot; class=&quot;headerlink&quot; title=&quot;Xpath轴&quot;&gt;&lt;/a&gt;Xpath轴&lt;/h2&gt;&lt;p&gt;轴可以定义相对于当前节点的节点集&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;轴名称&lt;/th&gt;
+&lt;th&gt;表达式&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;ancestor&lt;/td&gt;
+&lt;td&gt;xpath(‘./ancestor::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点的所有先辈节点（父、祖父）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ancestor-or-self&lt;/td&gt;
+&lt;td&gt;xpath(‘./ancestor-or-self::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点的所有先辈节点以及节点本身&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;attribute&lt;/td&gt;
+&lt;td&gt;xpath(‘./attribute::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点的所有属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;child&lt;/td&gt;
+&lt;td&gt;xpath(‘./child::*’)&lt;/td&gt;
+&lt;td&gt;返回当前节点的所有子节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;descendant&lt;/td&gt;
+&lt;td&gt;xpath(‘./descendant::*’)&lt;/td&gt;
+&lt;td&gt;返回当前节点的所有后代节点（子节点、孙节点）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;following&lt;/td&gt;
+&lt;td&gt;xpath(‘./following::*’)&lt;/td&gt;
+&lt;td&gt;选取文档中当前节点结束标签后的所有节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;following-sibing&lt;/td&gt;
+&lt;td&gt;xpath(‘./following-sibing::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点之后的兄弟节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;parent&lt;/td&gt;
+&lt;td&gt;xpath(‘./parent::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点的父节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preceding&lt;/td&gt;
+&lt;td&gt;xpath(‘./preceding::*’)&lt;/td&gt;
+&lt;td&gt;选取文档中当前节点开始标签前的所有节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preceding-sibling&lt;/td&gt;
+&lt;td&gt;xpath(‘./preceding-sibling::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点之前的兄弟节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;self&lt;/td&gt;
+&lt;td&gt;xpath(‘./self::*’)&lt;/td&gt;
+&lt;td&gt;选取当前节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;功能函数&quot;&gt;&lt;a href=&quot;#功能函数&quot; class=&quot;headerlink&quot; title=&quot;功能函数&quot;&gt;&lt;/a&gt;功能函数&lt;/h2&gt;&lt;p&gt;使用功能函数能够更好的进行模糊搜索&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;函数&lt;/th&gt;
+&lt;th&gt;用法&lt;/th&gt;
+&lt;th&gt;解释&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;starts-with&lt;/td&gt;
+&lt;td&gt;xpath(‘//div[starts-with(@id,”ma”)]’)&lt;/td&gt;
+&lt;td&gt;选取id值以ma开头的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;contains&lt;/td&gt;
+&lt;td&gt;xpath(‘//div[contains(@id,”ma”)]’)&lt;/td&gt;
+&lt;td&gt;选取id值包含ma的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;and&lt;/td&gt;
+&lt;td&gt;xpath(‘//div[contains(@id,”ma”) and contains(@id,”in”)]’)&lt;/td&gt;
+&lt;td&gt;选取id值包含ma和in的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;text()&lt;/td&gt;
+&lt;td&gt;xpath(‘//div[contains(text(),”ma”)]’)&lt;/td&gt;
+&lt;td&gt;选取节点文本包含ma的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;scrapy xpath文档&lt;/strong&gt;：&lt;a href=&quot;http://doc.scrapy.org/en/0.14/topics/selectors.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://doc.scrapy.org/en/0.14/topics/selectors.html&lt;/a&gt; &lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;选取节点&quot;&gt;&lt;a href=&quot;#选取节点&quot; class=&quot;headerlink&quot; title=&quot;选取节点&quot;&gt;&lt;/a&gt;选取节点&lt;/h2&gt;&lt;h3 id=&quot;常用的路劲表达式：&quot;&gt;&lt;a href=&quot;#常用的路劲表达式：&quot; class=&quot;headerlink&quot; title=&quot;常用的路劲表达式：&quot;&gt;&lt;/a&gt;常用的路劲表达式：&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;表达式&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;th&gt;实例&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;nodename&lt;/td&gt;
+&lt;td&gt;选取nodename节点的所有子节点&lt;/td&gt;
+&lt;td&gt;xpath(‘//div’)&lt;/td&gt;
+&lt;td&gt;选取了div节点的所有子节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;/&lt;/td&gt;
+&lt;td&gt;从根节点选取&lt;/td&gt;
+&lt;td&gt;xpath(‘/div’)&lt;/td&gt;
+&lt;td&gt;从根节点上选取div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;//&lt;/td&gt;
+&lt;td&gt;选取所有的当前节点，不考虑他们的位置&lt;/td&gt;
+&lt;td&gt;xpath(‘//div’)&lt;/td&gt;
+&lt;td&gt;选取所有的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;.&lt;/td&gt;
+&lt;td&gt;选取当前节点&lt;/td&gt;
+&lt;td&gt;xpath(‘./div’)&lt;/td&gt;
+&lt;td&gt;选取当前节点下的div节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;..&lt;/td&gt;
+&lt;td&gt;选取当前节点的父节点&lt;/td&gt;
+&lt;td&gt;xpath(‘..’)&lt;/td&gt;
+&lt;td&gt;回到上一个节点&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;@&lt;/td&gt;
+&lt;td&gt;选取属性&lt;/td&gt;
+&lt;td&gt;xpath（’//@calss’）&lt;/td&gt;
+&lt;td&gt;选取所有的class属性&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&quot;谓语&quot;&gt;&lt;a href=&quot;#谓语&quot; class=&quot;headerlink&quot; title=&quot;谓语&quot;&gt;&lt;/a&gt;谓语&lt;/h2&gt;&lt;p&gt;谓语被嵌在方括号内，用来查找某个特定的节点或包含某个制定的值的节点&lt;br&gt;
+    
+    </summary>
+    
+      <category term="爬虫技术栈" scheme="http://www.vitostack.com/categories/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
+    
+    
+      <category term="python爬虫" scheme="http://www.vitostack.com/tags/python%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="Xpath" scheme="http://www.vitostack.com/tags/Xpath/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hadoop failed task和killed task介绍</title>
+    <link href="http://www.vitostack.com/2016/05/06/hadoop-failed-task-and-killed-task/"/>
+    <id>http://www.vitostack.com/2016/05/06/hadoop-failed-task-and-killed-task/</id>
+    <published>2016-05-06T11:37:09.000Z</published>
+    <updated>2016-05-06T15:06:47.000Z</updated>
+    
+    <content type="html">&lt;blockquote&gt;
+&lt;p&gt;   failed task可理解为自杀，也就是task本身出了问题而自杀；killed task可理解为是他杀，也就是jobtracker认为这个任务的执行是多余的，所以把任务直接杀掉。起初用hadoop的时候经常在一个complete的job中看到几个failed 或者是 killed task，还经常好奇为什么有的时候task的失败不会影响到整个job的失败，而有的时候就会使整个job的失败，到底failed和killed task对整个job的影响是什么？&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;failed-task&quot;&gt;&lt;a href=&quot;#failed-task&quot; class=&quot;headerlink&quot; title=&quot;failed task&quot;&gt;&lt;/a&gt;failed task&lt;/h2&gt;&lt;p&gt;failed task出现的原因可分为以下几种情况：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;child task失败，比如map/reduce任务中抛出了异常，child JVM会将这个error汇报给tasktracker，tasktracker再回将这个error汇报给jobtracker&lt;/li&gt;
+&lt;li&gt;child JVM失败，比如启动child task的JVM本身出现了bug，导致进程直接死掉，此时tasktracker会知道child JVM已经退出，并汇报给jobtracker此次task attempt失败&lt;/li&gt;
+&lt;li&gt;任务超时，如果某个任务很长时间都没有更新状态，则认为任务超时。有的任务虽然执行时间非常长，但它不停的在更新自己的状态，所以系统也不会认为这是个超时任务&lt;/li&gt;
+&lt;li&gt;tasktracker由于软件或硬件的原因直接挂掉了。对于这种情况，tasktracker会停止向jobtracker发送心跳，jobtracker会认为这是个dead node并把该节点加入黑名单，从此不再给这个节点分配任务，直到问题被修复后tasktracker重新汇报心跳。我遇到最囧的情况就是当各节点hosts不一致的时候，会出现tasktracker向jobtasker发送心跳，但jobtracker不能正确向tasktracker，形成了半死不活的节点～。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;hadoop本身的一个设计理念就是在普通的pc硬件上构建高可靠性的系统，任何failed task都不会引起整个job的失败，因为所有失败的任务都会被重新执行（reschedule execution），只有当重新执行的次数超过4次，才会把这任务标记为失败，导致整个job的失败。&lt;/p&gt;
+&lt;h2 id=&quot;killed-task&quot;&gt;&lt;a href=&quot;#killed-task&quot; class=&quot;headerlink&quot; title=&quot;killed task&quot;&gt;&lt;/a&gt;killed task&lt;/h2&gt;&lt;p&gt;在介绍killed task之前，先介绍一下speculative execution。举个简单的例子，如果某个job有2000个map task，已经完成了1999个，只剩下一个task由于硬件比较慢而成为拖尾任务，为了减少拖尾任务对整个job运行时间的影响，jobtracker会重新启动一个一模一样的duplicate task和原有的task并行的执行，这样有一个task执行成功，整个map过程就会结束。speculative execution只有个处理拖尾任务的优化策略，并不能提高系统的可靠性。&lt;br&gt;介绍完speculative execution后我们来看看killed task的情况。killed task可能在两种情况下发生，一个是speculative execution中两个并行duplicate task中如果有一个执行成功，另一个将被kill掉；第二种情况是如果某个tasktracker挂了，那么正在该节点上面跑的任务都将被标记为killed&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;   failed task可理解为自杀，也就是task本身出了问题而自杀；killed task可理解为是他杀，也就是jobtracker认为这个任务的执行是多余的，所以把任务直接杀掉。起初用hadoop的时候经常在一个complete的job中看到几个failed 或者是 killed task，还经常好奇为什么有的时候task的失败不会影响到整个job的失败，而有的时候就会使整个job的失败，到底failed和killed task对整个job的影响是什么？&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Hadoop" scheme="http://www.vitostack.com/categories/Hadoop/"/>
+    
+    
+      <category term="hadoop" scheme="http://www.vitostack.com/tags/hadoop/"/>
+    
+      <category term="hadoop性能优化" scheme="http://www.vitostack.com/tags/hadoop%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python排序sort sorted高级排序技巧</title>
+    <link href="http://www.vitostack.com/2016/05/06/python-sort-highly-advance/"/>
+    <id>http://www.vitostack.com/2016/05/06/python-sort-highly-advance/</id>
+    <published>2016-05-06T04:04:27.000Z</published>
+    <updated>2016-05-06T15:06:47.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;基础货&quot;&gt;&lt;a href=&quot;#基础货&quot; class=&quot;headerlink&quot; title=&quot;基础货&quot;&gt;&lt;/a&gt;基础货&lt;/h2&gt;&lt;p&gt;Python &lt;code&gt;list&lt;/code&gt;内置&lt;code&gt;sort()&lt;/code&gt;方法用来排序，也可以用python内置的全局&lt;code&gt;sorted()&lt;/code&gt;方法来对可迭代的序列排序生成新的序列。&lt;/p&gt;
+&lt;h3 id=&quot;排序基础&quot;&gt;&lt;a href=&quot;#排序基础&quot; class=&quot;headerlink&quot; title=&quot;排序基础&quot;&gt;&lt;/a&gt;排序基础&lt;/h3&gt;&lt;p&gt;简单的升序排序是非常容易的。只需要调用&lt;code&gt;sorted()&lt;/code&gt;方法。它返回一个新的&lt;code&gt;list&lt;/code&gt;，新的&lt;code&gt;list&lt;/code&gt;的元素基于小于运算符&lt;code&gt;__lt__&lt;/code&gt;来排序。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted([&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;你也可以使用&lt;code&gt;list.sort()&lt;/code&gt;方法来排序，此时&lt;code&gt;list&lt;/code&gt;本身将被修改。通常此方法不如&lt;code&gt;sorted()&lt;/code&gt;方便，但是如果你不需要保留原来的&lt;code&gt;list&lt;/code&gt;，此方法将更有效。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a = [&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a.sort()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;另一个不同就是&lt;code&gt;list.sort()&lt;/code&gt;方法仅被定义在&lt;code&gt;list&lt;/code&gt;中，相反地&lt;code&gt;sorted()&lt;/code&gt;方法对所有的可迭代序列都有效。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sorted(&amp;#123;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;key参数-函数&quot;&gt;&lt;a href=&quot;#key参数-函数&quot; class=&quot;headerlink&quot; title=&quot;key参数/函数&quot;&gt;&lt;/a&gt;key参数/函数&lt;/h3&gt;&lt;p&gt;从python2.4开始，&lt;code&gt;list.sort()&lt;/code&gt;和&lt;code&gt;sorted()&lt;/code&gt;函数增加了&lt;code&gt;key&lt;/code&gt;参数来指定一个函数，此函数将在每个元素比较前被调用。 例如通过&lt;code&gt;key&lt;/code&gt;指定的函数来忽略字符串的大小写：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(&lt;span class=&quot;string&quot;&gt;&quot;This is a test string from Andrew&quot;&lt;/span&gt;.split(), key=str.lower)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&#39;a&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;Andrew&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;from&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;is&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;string&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;test&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;This&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;key&lt;/code&gt;参数的值为一个函数，此函数只有一个参数且返回一个值用来进行比较。这个技术是快速的因为key指定的函数将准确地对每个元素调用。&lt;br&gt;更广泛的使用情况是用复杂对象的某些值来对复杂对象的序列排序，例如：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;student_tuples = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        (&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_tuples, key=&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt; student: student[&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;])   &lt;span class=&quot;comment&quot;&gt;# sort by age&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;同样的技术对拥有命名属性的复杂对象也适用，例如：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Student&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, name, grade, age)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                self.name = name&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                self.grade = grade&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                self.age = age&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__repr__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; repr((self.name, self.grade, self.age))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;student_objects = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Student(&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Student(&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        Student(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_objects, key=&lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt; student: student.age)   &lt;span class=&quot;comment&quot;&gt;# sort by age&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;高级技巧&quot;&gt;&lt;a href=&quot;#高级技巧&quot; class=&quot;headerlink&quot; title=&quot;高级技巧&quot;&gt;&lt;/a&gt;高级技巧&lt;/h2&gt;&lt;h3 id=&quot;Operator-模块函数&quot;&gt;&lt;a href=&quot;#Operator-模块函数&quot; class=&quot;headerlink&quot; title=&quot;Operator 模块函数&quot;&gt;&lt;/a&gt;Operator 模块函数&lt;/h3&gt;&lt;p&gt;上面的&lt;code&gt;key&lt;/code&gt;参数的使用非常广泛，因此python提供了一些方便的函数来使得访问方法更加容易和快速。&lt;code&gt;operator&lt;/code&gt;模块有&lt;code&gt;itemgetter&lt;/code&gt;，&lt;code&gt;attrgetter&lt;/code&gt;，从2.6开始还增加了&lt;code&gt;methodcaller&lt;/code&gt;方法。使用这些方法，上面的操作将变得更加简洁和快速：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; operator &lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; itemgetter, attrgetter&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_tuples, key=itemgetter(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_objects, key=attrgetter(&lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;operator&lt;/code&gt;模块还允许多级的排序，例如，先以&lt;code&gt;grade&lt;/code&gt;，然后再以&lt;code&gt;age&lt;/code&gt;来排序：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_tuples, key=itemgetter(&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_objects, key=attrgetter(&lt;span class=&quot;string&quot;&gt;&#39;grade&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;升序和降序&quot;&gt;&lt;a href=&quot;#升序和降序&quot; class=&quot;headerlink&quot; title=&quot;升序和降序&quot;&gt;&lt;/a&gt;升序和降序&lt;/h3&gt;&lt;p&gt;&lt;code&gt;list.sort()&lt;/code&gt;和&lt;code&gt;sorted()&lt;/code&gt;都接受一个参数&lt;code&gt;reverse（True or False）&lt;/code&gt;来表示升序或降序排序。例如对上面的&lt;code&gt;student&lt;/code&gt;降序排序如下：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_tuples, key=itemgetter(&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;), reverse=&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_objects, key=attrgetter(&lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;), reverse=&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;排序的稳定性和复杂排序&quot;&gt;&lt;a href=&quot;#排序的稳定性和复杂排序&quot; class=&quot;headerlink&quot; title=&quot;排序的稳定性和复杂排序&quot;&gt;&lt;/a&gt;排序的稳定性和复杂排序&lt;/h3&gt;&lt;p&gt;从python2.2开始，排序被保证为稳定的。意思是说多个元素如果有相同的&lt;code&gt;key&lt;/code&gt;，则排序前后他们的先后顺序不变。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;data = [(&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(data, key=itemgetter(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意在排序后&lt;code&gt;&amp;#39;blue&amp;#39;&lt;/code&gt;的顺序被保持了，即&lt;code&gt;&amp;#39;blue&amp;#39;&lt;/code&gt;, &lt;code&gt;1&lt;/code&gt;在&lt;code&gt;&amp;#39;blue&amp;#39;&lt;/code&gt;, &lt;code&gt;2&lt;/code&gt;的前面。&lt;/p&gt;
+&lt;p&gt;更复杂地你可以构建多个步骤来进行更复杂的排序，例如对&lt;code&gt;student&lt;/code&gt;数据先以&lt;code&gt;grade&lt;/code&gt;降序排列，然后再以&lt;code&gt;age&lt;/code&gt;升序排列。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;s = sorted(student_objects, key=attrgetter(&lt;span class=&quot;string&quot;&gt;&#39;age&#39;&lt;/span&gt;))     &lt;span class=&quot;comment&quot;&gt;# sort on secondary key&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(s, key=attrgetter(&lt;span class=&quot;string&quot;&gt;&#39;grade&#39;&lt;/span&gt;), reverse=&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;)       &lt;span class=&quot;comment&quot;&gt;# now sort on primary key, descending&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;最老土的排序方法-DSU&quot;&gt;&lt;a href=&quot;#最老土的排序方法-DSU&quot; class=&quot;headerlink&quot; title=&quot;最老土的排序方法-DSU&quot;&gt;&lt;/a&gt;最老土的排序方法-DSU&lt;/h2&gt;&lt;p&gt;我们称其为DSU（Decorate-Sort-Undecorate）,原因为排序的过程需要下列三步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;对原始的list进行装饰，使得新list的值可以用来控制排序；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;对装饰后的list排序；&lt;/li&gt;
+&lt;li&gt;将装饰删除，将排序后的装饰list重新构建为原来类型的list；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;例如，使用DSU方法来对&lt;code&gt;student&lt;/code&gt;数据根据&lt;code&gt;grade&lt;/code&gt;排序：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;decorated = [(student.grade, i, student) &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; i, student &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; enumerate(student_objects)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;decorated.sort()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;[student &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; grade, i, student &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; decorated]               &lt;span class=&quot;comment&quot;&gt;# undecorate&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;上面的比较能够工作，原因是&lt;code&gt;tuples&lt;/code&gt;是可以用来比较，&lt;code&gt;tuples&lt;/code&gt;间的比较首先比较&lt;code&gt;tuples&lt;/code&gt;的第一个元素，如果第一个相同再比较第二个元素，以此类推。&lt;/p&gt;
+&lt;p&gt;并不是所有的情况下都需要在以上的&lt;code&gt;tuples&lt;/code&gt;中包含索引，但是包含索引可以有以下好处：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;排序是稳定的，如果两个元素有相同的key，则他们的原始先后顺序保持不变；&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;原始的元素不必用来做比较，因为tuples的第一和第二元素用来比较已经是足够了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;此方法被RandalL.在perl中广泛推广后，他的另一个名字为也被称为Schwartzian transform。&lt;/p&gt;
+&lt;p&gt;对大的list或list的元素计算起来太过复杂的情况下，在python2.4前，DSU很可能是最快的排序方法。但是在2.4之后，上面解释的key函数提供了类似的功能。&lt;/p&gt;
+&lt;h2 id=&quot;其他语言普遍使用的排序方法-cmp函数&quot;&gt;&lt;a href=&quot;#其他语言普遍使用的排序方法-cmp函数&quot; class=&quot;headerlink&quot; title=&quot;其他语言普遍使用的排序方法-cmp函数&quot;&gt;&lt;/a&gt;其他语言普遍使用的排序方法-cmp函数&lt;/h2&gt;&lt;p&gt;在python2.4前，&lt;code&gt;sorted()&lt;/code&gt;和&lt;code&gt;list.sort()&lt;/code&gt;函数没有提供&lt;code&gt;key&lt;/code&gt;参数，但是提供了&lt;code&gt;cmp&lt;/code&gt;参数来让用户指定比较函数。此方法在其他语言中也普遍存在。&lt;br&gt;在python3.0中，&lt;code&gt;cmp&lt;/code&gt;参数被彻底的移除了，从而简化和统一语言，减少了高级比较和&lt;code&gt;__cmp__&lt;/code&gt;方法的冲突。&lt;br&gt;在python2.x中&lt;code&gt;cmp&lt;/code&gt;参数指定的函数用来进行元素间的比较。此函数需要2个参数，然后返回负数表示小于，0表示等于，正数表示大于。例如：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;numeric_compare&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(x, y)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; x - y&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted([&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;], cmp=numeric_compare)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;或者你可以反序排序：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;reverse_numeric&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(x, y)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; y - x&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted([&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;], cmp=reverse_numeric)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当我们将现有的2.x的代码移植到3.x时，需要将&lt;code&gt;cmp&lt;/code&gt;函数转化为&lt;code&gt;key&lt;/code&gt;函数，以下的&lt;code&gt;wrapper&lt;/code&gt;很有帮助：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;cmp_to_key&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(mycmp)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;Convert a cmp= function into a key= function&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;K&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(object)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, obj, *args)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            self.obj = obj&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__lt__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, other)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mycmp(self.obj, other.obj) &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__gt__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, other)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mycmp(self.obj, other.obj) &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__eq__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, other)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mycmp(self.obj, other.obj) == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__le__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, other)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mycmp(self.obj, other.obj) &amp;lt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__ge__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, other)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mycmp(self.obj, other.obj) &amp;gt;= &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;__ne__&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(self, other)&lt;/span&gt;:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; mycmp(self.obj, other.obj) != &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; K&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当需要将&lt;code&gt;cmp&lt;/code&gt;转化为&lt;code&gt;key&lt;/code&gt;时，只需要：&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted([&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;], key=cmp_to_key(reverse_numeric))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;从python2.7，&lt;code&gt;cmp_to_key()&lt;/code&gt;函数被增加到了&lt;code&gt;functools&lt;/code&gt;模块中。&lt;/p&gt;
+&lt;h2 id=&quot;其他注意事项&quot;&gt;&lt;a href=&quot;#其他注意事项&quot; class=&quot;headerlink&quot; title=&quot;其他注意事项&quot;&gt;&lt;/a&gt;其他注意事项&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;对需要进行区域相关的排序时，可以使用locale.strxfrm()作为key函数，或者使用local.strcoll()作为cmp函数。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;reverse参数任然保持了排序的稳定性，有趣的时，同样的效果可以使用reversed()函数两次来实现：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;data = [(&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;red&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;blue&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;assert&lt;/span&gt; sorted(data, reverse=&lt;span class=&quot;keyword&quot;&gt;True&lt;/span&gt;) == list(reversed(sorted(reversed(data))))&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;其实排序在内部是调用元素的&lt;code&gt;__cmp__&lt;/code&gt;来进行的，所以我们可以为元素类型增加&lt;code&gt;__cmp__&lt;/code&gt;方法使得元素可比较，例如：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;Student.__lt__ = &lt;span class=&quot;keyword&quot;&gt;lambda&lt;/span&gt; self, other: self.age &amp;lt; other.age&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(student_objects)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[(&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;10&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;), (&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;)]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;key函数不仅可以访问需要排序元素的内部数据，还可以访问外部的资源，例如，如果学生的成绩是存储在&lt;code&gt;dict&lt;/code&gt;中的，则可以使用此&lt;code&gt;dict&lt;/code&gt;来对学生名字的&lt;code&gt;list&lt;/code&gt;排序，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;students = [&lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;newgrades = &amp;#123;&lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;F&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;C&#39;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted(students, key=newgrades.__getitem__)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;string&quot;&gt;&#39;jane&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;dave&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;john&#39;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;当你需要在处理数据的同时进行排序的话，&lt;code&gt;sort()&lt;/code&gt;,&lt;code&gt;sorted()&lt;/code&gt;或&lt;code&gt;bisect.insort()&lt;/code&gt;不是最好的方法。在这种情况下，可以使用&lt;code&gt;heap&lt;/code&gt;，&lt;code&gt;red-black tree&lt;/code&gt;或&lt;code&gt;treap&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;基础货&quot;&gt;&lt;a href=&quot;#基础货&quot; class=&quot;headerlink&quot; title=&quot;基础货&quot;&gt;&lt;/a&gt;基础货&lt;/h2&gt;&lt;p&gt;Python &lt;code&gt;list&lt;/code&gt;内置&lt;code&gt;sort()&lt;/code&gt;方法用来排序，也可以用python内置的全局&lt;code&gt;sorted()&lt;/code&gt;方法来对可迭代的序列排序生成新的序列。&lt;/p&gt;
+&lt;h3 id=&quot;排序基础&quot;&gt;&lt;a href=&quot;#排序基础&quot; class=&quot;headerlink&quot; title=&quot;排序基础&quot;&gt;&lt;/a&gt;排序基础&lt;/h3&gt;&lt;p&gt;简单的升序排序是非常容易的。只需要调用&lt;code&gt;sorted()&lt;/code&gt;方法。它返回一个新的&lt;code&gt;list&lt;/code&gt;，新的&lt;code&gt;list&lt;/code&gt;的元素基于小于运算符&lt;code&gt;__lt__&lt;/code&gt;来排序。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;sorted([&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;])&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;你也可以使用&lt;code&gt;list.sort()&lt;/code&gt;方法来排序，此时&lt;code&gt;list&lt;/code&gt;本身将被修改。通常此方法不如&lt;code&gt;sorted()&lt;/code&gt;方便，但是如果你不需要保留原来的&lt;code&gt;list&lt;/code&gt;，此方法将更有效。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a = [&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a.sort()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;a&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;另一个不同就是&lt;code&gt;list.sort()&lt;/code&gt;方法仅被定义在&lt;code&gt;list&lt;/code&gt;中，相反地&lt;code&gt;sorted()&lt;/code&gt;方法对所有的可迭代序列都有效。&lt;br&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sorted(&amp;#123;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;D&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;B&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;E&#39;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;A&#39;&lt;/span&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&quot;key参数-函数&quot;&gt;&lt;a href=&quot;#key参数-函数&quot; class=&quot;headerlink&quot; title=&quot;key参数/函数&quot;&gt;&lt;/a&gt;key参数/函数&lt;/h3&gt;&lt;p&gt;从python2.4开始，&lt;code&gt;list.sort()&lt;/code&gt;和&lt;code&gt;sorted()&lt;/code&gt;函数增加了&lt;code&gt;key&lt;/code&gt;参数来指定一个函数，此函数将在每个元素比较前被调用。 例如通过&lt;code&gt;key&lt;/code&gt;指定的函数来忽略字符串的大小写：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://www.vitostack.com/categories/Python/"/>
+    
+    
+      <category term="python" scheme="http://www.vitostack.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Hadoop上跑MapReduce的Python示例</title>
