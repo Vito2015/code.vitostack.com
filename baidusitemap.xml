@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.vitostack.com/2016/05/22/python-unknown-feature/</loc>
+    <lastmod>2016-05-22T05:20:41.000Z</lastmod>
+    <data>
+        <display>
+        <title>Python“不为人知的”特性</title>
+        <pubTime>2016-05-22T05:15:50.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.vitostack.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.vitostack.com/2016/05/10/python-crawer-skill/</loc>
     <lastmod>2016-05-10T15:59:17.000Z</lastmod>
     <data>
@@ -48,6 +68,26 @@
 
     
   <url>
+    <loc>http://www.vitostack.com/2016/05/06/python-sort-highly-advance/</loc>
+    <lastmod>2016-05-06T15:06:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>python排序sort sorted高级排序技巧</title>
+        <pubTime>2016-05-06T04:04:27.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.vitostack.com/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.vitostack.com/2016/05/06/hadoop-failed-task-and-killed-task/</loc>
     <lastmod>2016-05-06T15:06:47.000Z</lastmod>
     <data>
@@ -63,26 +103,6 @@
            
              
               <breadCrumb title="Hadoop" url="http://www.vitostack.com/categories/Hadoop/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://www.vitostack.com/2016/05/06/python-sort-highly-advance/</loc>
-    <lastmod>2016-05-06T15:06:47.000Z</lastmod>
-    <data>
-        <display>
-        <title>python排序sort sorted高级排序技巧</title>
-        <pubTime>2016-05-06T04:04:27.000Z</pubTime>
-        
-        <tag>python</tag>
-         
-         
-           
-             
-              <breadCrumb title="Python" url="http://www.vitostack.com/categories/Python/"/>
           
         </display>
     </data>
