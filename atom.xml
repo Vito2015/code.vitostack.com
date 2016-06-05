@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.vitostack.com/"/>
-  <updated>2016-05-22T05:25:20.000Z</updated>
+  <updated>2016-06-05T02:51:57.000Z</updated>
   <id>http://www.vitostack.com/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python2.7 倒计时</title>
+    <link href="http://www.vitostack.com/2016/06/05/python-clock/"/>
+    <id>http://www.vitostack.com/2016/06/05/python-clock/</id>
+    <published>2016-06-05T02:35:38.000Z</published>
+    <updated>2016-06-05T02:51:57.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Python公告&quot;&gt;&lt;a href=&quot;#Python公告&quot; class=&quot;headerlink&quot; title=&quot;Python公告&quot;&gt;&lt;/a&gt;Python公告&lt;/h2&gt;&lt;p&gt;Python 发布了一个网站 &lt;a href=&quot;http://pythonclock.org/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://pythonclock.org/&lt;/a&gt; 来开始 Python 2.7 版本的退休倒计时。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;该版本将在 2020年4月12日 退休。退休后将不再进行任何维护。正式退休将在 2020 年的 PyCon 上宣布。&lt;br&gt;那大家有秩序的逐步迁移到 Python 3 吧，不要挤，时间大把！&lt;br&gt;&lt;img src=&quot;/2016/06/05/python-clock/Python27-Countdown.png&quot; alt=&quot;倒计时&quot; title=&quot;倒计时&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Python公告&quot;&gt;&lt;a href=&quot;#Python公告&quot; class=&quot;headerlink&quot; title=&quot;Python公告&quot;&gt;&lt;/a&gt;Python公告&lt;/h2&gt;&lt;p&gt;Python 发布了一个网站 &lt;a href=&quot;http://pythonclock.org/&quot;&gt;http://pythonclock.org/&lt;/a&gt; 来开始 Python 2.7 版本的退休倒计时。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Python" scheme="http://www.vitostack.com/categories/Python/"/>
+    
+    
+      <category term="python" scheme="http://www.vitostack.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>Python“不为人知的”特性</title>
