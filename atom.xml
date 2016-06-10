@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.vitostack.com/"/>
-  <updated>2016-06-10T02:56:32.000Z</updated>
+  <updated>2016-06-10T02:59:43.000Z</updated>
   <id>http://www.vitostack.com/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://www.vitostack.com/2016/06/10/python-to-js/"/>
     <id>http://www.vitostack.com/2016/06/10/python-to-js/</id>
     <published>2016-06-10T02:52:43.000Z</published>
-    <updated>2016-06-10T02:56:32.000Z</updated>
+    <updated>2016-06-10T02:59:43.000Z</updated>
     
     <content type="html">&lt;blockquote&gt;
 &lt;p&gt;   Python还是Javascript？我们经常会争论哪种语言更有前途。相比之下，哪种语言在浏览器中更好用则没有什么争论，因为那必然是Javascript。&lt;/p&gt;
 &lt;p&gt;   嗯～也许并不是没有争论。Javascript经常被用作其他语言转化的目标语言。由于Python拥有庞大的追随群体，和大量已经存在的库，使得“编写Python，然后转化成javascript代码”很受期待。&lt;/p&gt;
 &lt;p&gt;   下面是4个能够将Python转化为Javascript的工具，其中一个抢眼，因为它还能反过来把Javascript转化为Python。&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;Transcrypt&quot;&gt;&lt;a href=&quot;#Transcrypt&quot; class=&quot;headerlink&quot; title=&quot;Transcrypt&quot;&gt;&lt;/a&gt;Transcrypt&lt;/h2&gt;&lt;p&gt;一个新出现的Python到Javascript编译器。它做了一些有关于它生成的代码质量方面的有趣承诺。首先，它尽量保留原始Python代码的结构，包括多继承和lambda函数等的特性。此外，Python代码也能调用Javascript命名空间中的对象。如果你在Python中试着调用document.getElementById，那么生成的javascript中就会如实地使用getElementById。&lt;/p&gt;
 &lt;p&gt;根据文档，Transcrypt是使用Python的AST模块来实现这些功能的。AST模块允许开发者调用Python解析自己代码的功能。虽然这个项目还是alpha版，但是看着它一点点成长还是很令人激动。&lt;/p&gt;
 &lt;h2 id=&quot;Jiphy&quot;&gt;&lt;a href=&quot;#Jiphy&quot; class=&quot;headerlink&quot; title=&quot;Jiphy&quot;&gt;&lt;/a&gt;Jiphy&lt;/h2&gt;&lt;p&gt;Jiphy，这个单词的意思是“Javascript in, Python out”，反向同样可以做转换。另外，在任何方向的转化之前，两种语言的代码都可以先进行杂揉。&lt;/p&gt;
@@ -41,7 +42,9 @@
     
       &lt;blockquote&gt;
 &lt;p&gt;   Python还是Javascript？我们经常会争论哪种语言更有前途。相比之下，哪种语言在浏览器中更好用则没有什么争论，因为那必然是Javascript。&lt;/p&gt;
-&lt;p&gt;   嗯～也许并不是没有争论。Javascript经常被用作其他语言转化
+&lt;p&gt;   嗯～也许并不是没有争论。Javascript经常被用作其他语言转化的目标语言。由于Python拥有庞大的追随群体，和大量已经存在的库，使得“编写Python，然后转化成javascript代码”很受期待。&lt;/p&gt;
+&lt;p&gt;   下面是4个能够将Python转化为Javascript的工具，其中一个抢眼，因为它还能反过来把Javascript转化为Python。&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     
