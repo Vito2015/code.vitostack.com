@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://www.vitostack.com/2016/06/18/tencent-case/</loc>
+    <lastmod>2016-06-17T19:08:34.000Z</lastmod>
+    <data>
+        <display>
+        <title>十道腾讯软件开发工程师面试题</title>
+        <pubTime>2016-06-17T18:34:51.000Z</pubTime>
+        
+        <tag>［面试］</tag>
+         
+         
+           
+             
+              <breadCrumb title="技术堆" url="http://www.vitostack.com/categories/%E6%8A%80%E6%9C%AF%E5%A0%86/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://www.vitostack.com/2016/06/10/python-to-js/</loc>
     <lastmod>2016-06-10T02:59:43.000Z</lastmod>
     <data>
@@ -66,28 +86,6 @@
 
     
   <url>
-    <loc>http://www.vitostack.com/2016/05/10/python-crawer-skill/</loc>
-    <lastmod>2016-05-10T15:59:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>python爬虫－常用技巧</title>
-        <pubTime>2016-05-10T15:55:02.000Z</pubTime>
-        
-        <tag>python爬虫</tag>
-         
-        <tag>urllib</tag>
-         
-         
-           
-             
-              <breadCrumb title="爬虫技术栈" url="http://www.vitostack.com/categories/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://www.vitostack.com/2016/05/10/xpath-syntax/</loc>
     <lastmod>2016-05-10T15:59:17.000Z</lastmod>
     <data>
@@ -110,19 +108,21 @@
 
     
   <url>
-    <loc>http://www.vitostack.com/2016/05/06/python-sort-highly-advance/</loc>
-    <lastmod>2016-05-06T15:06:47.000Z</lastmod>
+    <loc>http://www.vitostack.com/2016/05/10/python-crawer-skill/</loc>
+    <lastmod>2016-05-10T15:59:17.000Z</lastmod>
     <data>
         <display>
-        <title>python排序sort sorted高级排序技巧</title>
-        <pubTime>2016-05-06T04:04:27.000Z</pubTime>
+        <title>python爬虫－常用技巧</title>
+        <pubTime>2016-05-10T15:55:02.000Z</pubTime>
         
-        <tag>python</tag>
+        <tag>python爬虫</tag>
+         
+        <tag>urllib</tag>
          
          
            
              
-              <breadCrumb title="Python" url="http://www.vitostack.com/categories/Python/"/>
+              <breadCrumb title="爬虫技术栈" url="http://www.vitostack.com/categories/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF%E6%A0%88/"/>
           
         </display>
     </data>
@@ -145,6 +145,26 @@
            
              
               <breadCrumb title="Hadoop" url="http://www.vitostack.com/categories/Hadoop/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://www.vitostack.com/2016/05/06/python-sort-highly-advance/</loc>
+    <lastmod>2016-05-06T15:06:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>python排序sort sorted高级排序技巧</title>
+        <pubTime>2016-05-06T04:04:27.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="http://www.vitostack.com/categories/Python/"/>
           
         </display>
     </data>
